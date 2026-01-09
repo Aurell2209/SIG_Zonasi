@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        /* Kontainer utama dengan tepi dan bayangan sesuai gambar */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            /* Tepi halus luar */
+            box-sizing: border-box;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .sub-title {
+            font-weight: bold;
+            margin: 20px 0 10px 0;
+            text-transform: uppercase;
+        }
+
+        /* Kotak Rumus sesuai foto */
+        .rumus-box {
+            border: 1px solid #000;
+            padding: 10px 25px;
+            display: inline-block;
+            font-family: "Courier New", Courier, monospace;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 10px 0 20px 0;
+        }
+
+        /* Layout Keterangan Rumus */
+        .keterangan-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.6;
+        }
+
+        .label-keterangan {
+            min-width: 110px;
+        }
+
+        .detail-list {
+            display: grid;
+            grid-template-columns: auto auto;
+            column-gap: 15px;
+        }
+
+        .var-name {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .var-desc {
+            position: relative;
+        }
+
+        .indent-text {
+            display: block;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .footer-note {
+            margin-top: 15px;
+        }
+
+        /* Style Tabel tetap Full Width */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+        th {
+            background-color: #37A;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        td {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Perhitungan Nilai Sekolah Menengah Pertama (SMP) Jalur Zonasi Kota Semarang 2025</h2>
+
+        <p>Sesuai Keputusan Wali Kota Semarang Nomor 400.3/393 Tahun 2024 Tentang Petunjuk Teknis Sistem Penerimaan
+            Murid Baru Pada Satuan Pendidikan Negeri Di Lingkungan Pemerintah Kota Semarang Tahun 2025. Rumus
+            Perhitungan Nilai Akhir Peringkat Pada Sistem Penerimaan Murid Baru Tahun 2025</p>
+
+        <div class="sub-title">1. Rumus Perhitungan Jalur Domisili</div>
+
+        <div class="rumus-box">
+            NAP = NK + NL + NU
+        </div>
+
+        <div class="keterangan-section">
+            <div class="label-keterangan">Keterangan :</div>
+            <div class="detail-list">
+                <div class="var-name">NAP</div>
+                <div class="var-desc">= Nilai Akhir Peringkat</div>
+
+                <div class="var-name">NK</div>
+                <div class="var-desc">
+                    = Nilai Kewilayahan Tempat Tinggal Murid<br>
+                    &nbsp;&nbsp;Nilai 50 Jika ada di kewilayahan 1<br>
+                    &nbsp;&nbsp;Nilai 25 Jika ada di kewilayahan 2
+                </div>
+
+                <div class="var-name">NL</div>
+                <div class="var-desc">= Nilai Lingkungan (Nilai 3)</div>
+
+                <div class="var-name">NU</div>
+                <div class="var-desc">
+                    = Nilai usia Calon Murid (Usia Maksimal 15 Tahun)
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="footer-note">
+            Jika nilai sama penentunya adalah urutan pendaftaran.
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Nama Sekolah</th>
+                    <th>Wilayah 1</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>SMPN 01 Semarang</td>
+                    <td>Bojongsalaman, Bongsari, Cabean, Oisikdrono, Jerakah, Kalibanteng Kidul... (dst)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> -->
+
+</body>
+
+</html>
