@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet-svg-shape-markers.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/LapakGIS_Batas_Kecamatan_2024_1.js"></script>
+        <script src="data/dataSIG_MultiRingBuffer_2.js"></script>
+        <script src="data/dataSIGcopy_3.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:27, minZoom:1
+        }).fitBounds([[-7.12000700225,110.204080028],[-6.92919864417,110.570856094]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 27
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+        }
+        var overlay_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            opacity: 1.0
+        });
+        overlay_OSMStandard_0.addTo(map);
+        map.addLayer(overlay_OSMStandard_0);
+        function pop_LapakGIS_Batas_Kecamatan_2024_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KDCPUM'] !== null ? Autolinker.link(String(feature.properties['KDCPUM'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KDPKAB'] !== null ? Autolinker.link(String(feature.properties['KDPKAB'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['KDPPUM'] !== null ? Autolinker.link(String(feature.properties['KDPPUM'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['WADMKC'] !== null ? Autolinker.link(String(feature.properties['WADMKC'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['WADMKK'] !== null ? Autolinker.link(String(feature.properties['WADMKK'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['WADMPR'] !== null ? Autolinker.link(String(feature.properties['WADMPR'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['METADATA'] !== null ? Autolinker.link(String(feature.properties['METADATA'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['UPDATED'] !== null ? Autolinker.link(String(feature.properties['UPDATED'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LapakGIS_Batas_Kecamatan_2024_1_0() {
+            return {
+                pane: 'pane_LapakGIS_Batas_Kecamatan_2024_1',
+                opacity: 1,
+                color: 'rgba(114,133,132,0.396078)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(57,93,221,0.396078)',
+            }
+        }
+        map.createPane('pane_LapakGIS_Batas_Kecamatan_2024_1');
+        map.getPane('pane_LapakGIS_Batas_Kecamatan_2024_1').style.zIndex = 401;
+        map.getPane('pane_LapakGIS_Batas_Kecamatan_2024_1').style['mix-blend-mode'] = 'normal';
+        var layer_LapakGIS_Batas_Kecamatan_2024_1 = new L.geoJson(json_LapakGIS_Batas_Kecamatan_2024_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_LapakGIS_Batas_Kecamatan_2024_1',
+            onEachFeature: pop_LapakGIS_Batas_Kecamatan_2024_1,
+            style: style_LapakGIS_Batas_Kecamatan_2024_1_0,
+        });
+        bounds_group.addLayer(layer_LapakGIS_Batas_Kecamatan_2024_1);
+        map.addLayer(layer_LapakGIS_Batas_Kecamatan_2024_1);
+        function pop_dataSIG_MultiRingBuffer_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Nama Sekolah'] !== null ? Autolinker.link(String(feature.properties['Nama Sekolah'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Dayang Tampung Zonasi'] !== null ? Autolinker.link(String(feature.properties['Dayang Tampung Zonasi'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Alamat'] !== null ? Autolinker.link(String(feature.properties['Alamat'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Kecamatan'] !== null ? Autolinker.link(String(feature.properties['Kecamatan'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Kode Pos'] !== null ? Autolinker.link(String(feature.properties['Kode Pos'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['X'] !== null ? Autolinker.link(String(feature.properties['X'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Y'] !== null ? Autolinker.link(String(feature.properties['Y'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['distance'] !== null ? Autolinker.link(String(feature.properties['distance'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_dataSIG_MultiRingBuffer_2_0() {
+            return {
+                pane: 'pane_dataSIG_MultiRingBuffer_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.525490196078)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,0.0)',
+            }
+        }
+        map.createPane('pane_dataSIG_MultiRingBuffer_2');
+        map.getPane('pane_dataSIG_MultiRingBuffer_2').style.zIndex = 402;
+        map.getPane('pane_dataSIG_MultiRingBuffer_2').style['mix-blend-mode'] = 'normal';
+        var layer_dataSIG_MultiRingBuffer_2 = new L.geoJson(json_dataSIG_MultiRingBuffer_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_dataSIG_MultiRingBuffer_2',
+            onEachFeature: pop_dataSIG_MultiRingBuffer_2,
+            style: style_dataSIG_MultiRingBuffer_2_0,
+        });
+        bounds_group.addLayer(layer_dataSIG_MultiRingBuffer_2);
+        map.addLayer(layer_dataSIG_MultiRingBuffer_2);
+        function pop_dataSIGcopy_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Nama Sekolah</th>\
+                        <td>' + (feature.properties['Nama Sekolah'] !== null ? Autolinker.link(String(feature.properties['Nama Sekolah'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Dayang Tampung Zonasi</th>\
+                        <td>' + (feature.properties['Dayang Tampung Zonasi'] !== null ? Autolinker.link(String(feature.properties['Dayang Tampung Zonasi'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Alamat</th>\
+                        <td>' + (feature.properties['Alamat'] !== null ? Autolinker.link(String(feature.properties['Alamat'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Kecamatan</th>\
+                        <td>' + (feature.properties['Kecamatan'] !== null ? Autolinker.link(String(feature.properties['Kecamatan'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Kode Pos</th>\
+                        <td>' + (feature.properties['Kode Pos'] !== null ? Autolinker.link(String(feature.properties['Kode Pos'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['X'] !== null ? Autolinker.link(String(feature.properties['X'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Y'] !== null ? Autolinker.link(String(feature.properties['Y'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_dataSIGcopy_3_0() {
+            return {
+                pane: 'pane_dataSIGcopy_3',
+                shape: 'diamond',
+                radius: 10.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(21,58,223,1.0)',
+            }
+        }
+        map.createPane('pane_dataSIGcopy_3');
+        map.getPane('pane_dataSIGcopy_3').style.zIndex = 403;
+        map.getPane('pane_dataSIGcopy_3').style['mix-blend-mode'] = 'normal';
+        var layer_dataSIGcopy_3 = new L.geoJson(json_dataSIGcopy_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_dataSIGcopy_3',
+            onEachFeature: pop_dataSIGcopy_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_dataSIGcopy_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_dataSIGcopy_3);
+        map.addLayer(layer_dataSIGcopy_3);
+        setBounds();
+        var i = 0;
+        layer_LapakGIS_Batas_Kecamatan_2024_1.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['WADMKC'] !== null?String('<div style="color: #0a0a0a; font-size: 12pt; font-weight: bold; font-family: \'Myriad Pro Light\', sans-serif;">' + layer.feature.properties['WADMKC']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_LapakGIS_Batas_Kecamatan_2024_1'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_LapakGISBatasKecamatan2024_1]);
+        map.on("zoomend", function(){
+            resetLabels([layer_LapakGISBatasKecamatan2024_1]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_LapakGISBatasKecamatan2024_1]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_LapakGISBatasKecamatan2024_1]);
+        });
+        </script>
+    </body>
+</html>
